@@ -1,7 +1,7 @@
 import {
   Container,
   Filters,
-  ProductCard,
+  ProductGroupList,
   Title,
   TopBar,
 } from "@/components/shared";
@@ -16,18 +16,121 @@ export default function Home() {
       <TopBar />
 
       <Container className="mt-10 pb-14">
-        <div className="flex gap-[60px]">
+        <div className="flex gap-20">
           <div className="w-[250px]">
             <Filters />
           </div>
 
           <div className="flex-1">
             <div className="flex flex-col gap-16">
-              <ProductCard
-                id={0}
-                name="Мега Мясная"
-                price={550}
-                imageUrl="https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif"
+              <ProductGroupList
+                title="Пиццы"
+                items={[
+                  {
+                    id: 1,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 2,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 3,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 4,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 5,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 6,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                ]}
+                categoryId={1}
+              />
+
+              <ProductGroupList
+                title="Завтрак"
+                items={[
+                  {
+                    id: 1,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 2,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 3,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 4,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 5,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 6,
+                    name: "Мега Мясная",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EF38541E76455F9A3150F1EFDA0055.avif",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                ]}
+                categoryId={2}
               />
             </div>
           </div>

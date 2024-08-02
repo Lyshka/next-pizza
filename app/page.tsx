@@ -79,7 +79,7 @@ export default function Home() {
               />
 
               <ProductGroupList
-                title="Завтрак"
+                title="Комбо"
                 items={[
                   {
                     id: 1,

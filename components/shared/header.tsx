@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { Container } from "./";
+import { Container, SearchInput } from "./";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui";
@@ -26,6 +26,10 @@ export const Header: FC<Props> = ({ className }) => {
           </div>
         </Link>
 
+        <div className="mx-10 flex-1">
+          <SearchInput />
+        </div>
+
         <div className="flex items-center gap-3">
           <Button className="flex items-center gap-1" variant={"outline"}>
             <User size={16} />
@@ -44,7 +48,10 @@ export const Header: FC<Props> = ({ className }) => {
                 <b>3</b>
               </div>
 
-              <ArrowRight size={20} className="absolute right-5 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"/>
+              <ArrowRight
+                size={20}
+                className="absolute right-5 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
+              />
             </Button>
           </div>
         </div>

@@ -79,6 +79,9 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+  a {
+    @apply transition-all duration-300;
+  }
 }
 
 #nprogress .bar {
@@ -91,4 +94,21 @@ html {
 
 #nprogress .spinner-icon {
   @apply border-t-primary border-l-primary !important;
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    0% {
+      @apply opacity-0;
+    }
+
+    100% {
+      @apply opacity-100;
+    }
+  }
+
+  .display-trans {
+    transition-behavior: allow-discrete;
+    animation: fadeIn 0.5s ease-out;
+  }
 }

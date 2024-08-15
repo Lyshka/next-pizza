@@ -1,13 +1,18 @@
+"use client"
+
 import { FC } from "react";
 
 import { Input } from "../ui";
 import { RangeSlider, FilterCheckbox, Title, CheckboxFiltersGroup } from "./";
+import { useFilterIngredients } from "@/hooks/useFilterIngredients";
 
 interface Props {
   className?: string;
 }
 
 export const Filters: FC<Props> = ({ className }) => {
+  const { ingredients } = useFilterIngredients();
+
   return (
     <div className={className}>
       <Title text="Фильтрация" size="sm" className="mb-5 font-bold" />
@@ -39,32 +44,7 @@ export const Filters: FC<Props> = ({ className }) => {
         title="Ингридиенты"
         className="mt-5"
         limit={6}
-        defaultItems={[
-          {
-            text: "Сырный соус",
-            value: "1",
-          },
-          {
-            text: "Моццарелла",
-            value: "2",
-          },
-          {
-            text: "Чеснок",
-            value: "3",
-          },
-          {
-            text: "Солённые огурчики",
-            value: "4",
-          },
-          {
-            text: "Красный лук",
-            value: "5",
-          },
-          {
-            text: "Томаты",
-            value: "6",
-          },
-        ]}
+        defaultItems={ingredients.slice(0, 6)}
         items={[
           {
             text: "Сырный соус",
@@ -138,7 +118,6 @@ export const Filters: FC<Props> = ({ className }) => {
             text: "Томаты",
             value: "6",
           },
-          
         ]}
       />
     </div>

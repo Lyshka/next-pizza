@@ -2,7 +2,7 @@
 
 import { ChangeEvent, FC, useState } from "react";
 import { FilterChecboxProps, FilterCheckbox } from "./filter-checkbox";
-import { Input } from "../ui";
+import { Input, Skeleton } from "../ui";
 
 type Item = FilterChecboxProps;
 
@@ -11,20 +11,26 @@ interface Props {
   items: Item[];
   defaultItems: Item[];
   limit?: number;
+  loading?: boolean;
   searchInputPlaceholder?: string;
-  onChange?: (values: string[]) => void;
+  onClickCheckbox?: (id: string) => void;
   defaultValue?: string[];
+  selectedIds?: Set<string>;
   className?: string;
+  name?: string;
 }
 
 export const CheckboxFiltersGroup: FC<Props> = ({
+  name,
   className,
   title,
   items,
   defaultValue,
   defaultItems,
+  selectedIds,
   limit = 5,
-  onChange,
+  loading,
+  onClickCheckbox,
   searchInputPlaceholder = "Поиск...",
 }) => {
   const [showAll, setShowAll] = useState(false);
@@ -39,6 +45,20 @@ export const CheckboxFiltersGroup: FC<Props> = ({
   const onChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
+
+  if (loading) {
+    return (
+      <div className={className}>
+        <p className="font-bold mb-3">{title}</p>
+
+        {Array.from({ length: limit }).map((_, idx) => (
+          <Skeleton key={idx} className="mb-4 h-6 rounded-[8px]" />
+        ))}
+
+        <Skeleton className="w-28 mb-4 h-6 rounded-[8px]" />
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
@@ -57,13 +77,13 @@ export const CheckboxFiltersGroup: FC<Props> = ({
       <div className="flex flex-col gap-4 max-h-96 pr-2 overflow-auto scrollbar">
         {list.map((item, index) => (
           <FilterCheckbox
-            name={item.name}
+            name={name}
             key={index}
             text={item.text}
             value={item.value}
             endAdornment={item.endAdornment}
-            checked={false}
-            onCheckedChange={(ids) => console.log(ids)}
+            checked={selectedIds?.has(item.value)}
+            onCheckedChange={() => onClickCheckbox?.(item.value)}
           />
         ))}
       </div>
